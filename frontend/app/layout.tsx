@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Live ML Model Health Dashboard",
-  description: "Monitors drift and triggers simulated reindexing for a sentiment model",
+  title: "Painel de Saúde do Modelo de ML",
+  description: "Monitora drift e dispara reindexação simulada para um modelo de sentimento",
 };
 
 export default function RootLayout({
@@ -24,10 +24,10 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="pt-BR"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col bg-slate-950 text-slate-100">{children}</body>
     </html>
   );
 }

@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
+import { Zap, Loader2 } from "lucide-react";
 import { predict } from "../lib/api";
 
 const DRIFT_SAMPLE =
@@ -20,8 +22,8 @@ export function DriftInjectorButton({ onInjected }: DriftInjectorButtonProps) {
     try {
       for (let i = 0; i < INJECTION_COUNT; i++) {
         await predict(DRIFT_SAMPLE);
-        // Refresh after each request so the dashboard can catch a brief
-        // alert window even if auto-reindex resets it before the next poll tick.
+        // Atualiza o painel após cada requisição para capturar o alerta mesmo que
+        // o reindex automático o reset antes do próximo ciclo de polling.
         onInjected();
       }
     } finally {
@@ -30,13 +32,24 @@ export function DriftInjectorButton({ onInjected }: DriftInjectorButtonProps) {
   }
 
   return (
-    <button
+    <motion.button
       onClick={handleClick}
       disabled={injecting}
-      title={`Submits ${INJECTION_COUNT} out-of-domain (legal jargon) requests in sequence to reliably trigger visible drift`}
-      className="rounded border border-amber-400 bg-amber-50 px-4 py-2 text-sm font-medium text-amber-800 disabled:opacity-50"
+      whileTap={{ scale: 0.97 }}
+      title={`Envia ${INJECTION_COUNT} requisições fora do domínio (jargão jurídico) em sequência para disparar drift de forma confiável`}
+      className="flex items-center justify-center gap-2 rounded-lg border border-amber-500/40 bg-amber-500/10 px-4 py-2.5 text-sm font-medium text-amber-300 transition-colors hover:bg-amber-500/20 disabled:cursor-not-allowed disabled:opacity-50"
     >
-      {injecting ? `Injecting drift... (${INJECTION_COUNT} requests)` : "Inject Synthetic Drift (Demo)"}
-    </button>
+      {injecting ? (
+        <>
+          <Loader2 className="h-4 w-4 animate-spin" />
+          Injetando drift... ({INJECTION_COUNT} requisições)
+        </>
+      ) : (
+        <>
+          <Zap className="h-4 w-4" />
+          Injetar Drift Sintético (Demo)
+        </>
+      )}
+    </motion.button>
   );
 }
