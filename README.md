@@ -10,7 +10,7 @@ infraestrutura além de free tiers.
 
 ## Demonstração
 
-<video src="https://github.com/junior10soares/health-production-ml-dashboard/raw/main/demo/demo-final.mp4" controls width="100%"></video>
+<video src="https://github.com/junior10soares/health-production-ml-dashboard/blob/main/demo/demo-final.mp4?raw=true" controls width="100%"></video>
 
 /home/juniorsoares/Projetos/Health-Production/demo/demo-final.mp4
 
