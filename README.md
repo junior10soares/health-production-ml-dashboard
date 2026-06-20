@@ -12,8 +12,6 @@ infraestrutura além de free tiers.
 
 <video src="https://github.com/junior10soares/health-production-ml-dashboard/blob/main/demo/demo-final.mp4?raw=true" controls width="100%"></video>
 
-/home/juniorsoares/Projetos/Health-Production/demo/demo-final.mp4
-
 Ciclo completo gravado ao vivo: análise de sentimento em português → injeção de drift
 sintético → alerta automático → reindexação corrigindo o modelo.
 
